@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_input.h                                          :+:      :+:    :+:   */
+/*   sort_array.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/28 13:40:33 by bena              #+#    #+#             */
-/*   Updated: 2023/03/13 09:37:15 by bena             ###   ########.fr       */
+/*   Created: 2023/03/13 11:07:05 by bena              #+#    #+#             */
+/*   Updated: 2023/03/13 11:47:16 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef S_INPUT_H
-# define S_INPUT_H
+#include "s_array.h"
 
-typedef struct s_input
+static void	sort(int *start, int *end);
+
+void	sort_array(t_array *array)
 {
-	char	*input;
-	int		number_of_parameters;
-}			t_input;
-#endif
+	sort(array->array, array->array + array->number_of_parameters - 1);
+}
+
+static void	sort(int *start, int *end)
+{
+	int	pivot;
+	int	*left;
+	int	*right;
+
+	pivot = *start;
+	left = start;
+	right = end;
+}

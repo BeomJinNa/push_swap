@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_input.h                                          :+:      :+:    :+:   */
+/*   s_array.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:40:33 by bena              #+#    #+#             */
-/*   Updated: 2023/03/13 09:37:15 by bena             ###   ########.fr       */
+/*   Updated: 2023/03/13 09:38:18 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef S_INPUT_H
-# define S_INPUT_H
+#ifndef S_ARRAY_H
+# define S_ARRAY_H
 
-typedef struct s_input
+typedef struct s_array
 {
-	char	*input;
-	int		number_of_parameters;
-}			t_input;
+	int	*array
+	int	number_of_parameters;
+}			t_array;
 #endif
