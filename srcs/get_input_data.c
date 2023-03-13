@@ -6,25 +6,25 @@
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 12:43:45 by bena              #+#    #+#             */
-/*   Updated: 2023/02/28 17:51:18 by bena             ###   ########.fr       */
+/*   Updated: 2023/03/14 12:36:46 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "s_input.h"
 
-int			does_input_error_exist_ps(t_input *memory);
-int			is_this_space_ps(int c);
+int			does_input_error_exist(t_input *memory);
+int			is_this_space(int c);
 static char	*get_linked_input_string(int ac, char **av);
 static int	get_number_of_parameters(const char *str);
 
-void	get_input_data_ps(t_input *memory, int ac, char **av)
+void	get_input_data(t_input *memory, int ac, char **av)
 {
 	memory->input = get_linked_input_string(ac, av);
 	if (memory->input == NULL)
 		return ;
 	memory->number_of_parameters = get_number_of_parameters(memory->input);
-	if (does_input_error_exist_ps(memory))
+	if (does_input_error_exist(memory))
 	{
 		free(memory->input);
 		memory->input = NULL;
@@ -65,14 +65,14 @@ static int	get_number_of_parameters(const char *str)
 
 	number_of_parameters = 0;
 	ptr = str;
-	while (is_this_space_ps(*ptr))
+	while (is_this_space(*ptr))
 		ptr++;
 	while (*ptr)
 	{
 		number_of_parameters++;
-		while (*ptr && is_this_space_ps(*ptr) == 0)
+		while (*ptr && is_this_space(*ptr) == 0)
 			ptr++;
-		while (is_this_space_ps(*ptr))
+		while (is_this_space(*ptr))
 			ptr++;
 	}
 	return (number_of_parameters);

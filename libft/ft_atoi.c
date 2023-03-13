@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 21:17:32 by bena              #+#    #+#             */
-/*   Updated: 2022/11/21 18:27:19 by bena             ###   ########.fr       */
+/*   Updated: 2023/03/16 09:58:46 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ static int	ft_isspace(int c)
 
 int	ft_atoi(const char *str)
 {
-	int				sign;
-	int				output;
+	int	sign;
+	int	output;
 
 	while (ft_isspace(*str))
 		str++;

@@ -11,7 +11,11 @@ INCLUDE	= includes/
 SRCS	=	srcs/main.c \
 			srcs/get_input_data.c \
 			srcs/check_input_data.c \
-			srcs/compare_character.c
+			srcs/check_array_data.c \
+			srcs/compare_character.c \
+			srcs/extract_array_from_input.c \
+			srcs/get_index_table.c \
+			srcs/sort_array.c
 
 B_SRCS	=
 
