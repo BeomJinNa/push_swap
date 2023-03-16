@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 14:10:42 by bena              #+#    #+#             */
-/*   Updated: 2023/03/16 12:04:28 by bena             ###   ########.fr       */
+/*   Updated: 2023/03/16 15:00:43 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	does_any_overflow_occur(t_input *memory);
 
 int	does_input_error_exist(t_input *memory)
 {
-	if (memory->number_of_parameters == 0)
+	if (memory->number_of_parameters <= 0)
 		return (1);
 	if (is_there_wrong_character(memory))
 		return (1);
