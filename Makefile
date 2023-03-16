@@ -15,7 +15,8 @@ SRCS	=	srcs/main.c \
 			srcs/compare_character.c \
 			srcs/extract_array_from_input.c \
 			srcs/get_index_table.c \
-			srcs/sort_array.c
+			srcs/sort_array.c \
+			srcs/normalize_the_array.c
 
 B_SRCS	=
 

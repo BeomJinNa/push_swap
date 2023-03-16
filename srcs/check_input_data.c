@@ -6,17 +6,16 @@
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 14:10:42 by bena              #+#    #+#             */
-/*   Updated: 2023/03/16 09:41:12 by bena             ###   ########.fr       */
+/*   Updated: 2023/03/16 12:04:28 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 #include "s_input.h"
 
 int			is_this_wrong_character(int c);
 int			is_this_space(int c);
 int			is_this_sign(int c);
-int			ft_isdigit(int c);
 static int	is_there_wrong_character(t_input *memory);
 static int	is_there_bad_position_of_sign(t_input *memory);
 static int	check_the_bad_sign(const char **ptr);

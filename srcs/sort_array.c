@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 11:07:05 by bena              #+#    #+#             */
-/*   Updated: 2023/03/14 15:08:14 by bena             ###   ########.fr       */
+/*   Updated: 2023/03/16 12:09:58 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,10 @@ static void	sort(int *start, int *end)
 		if (left < right)
 			swap(left, right);
 	}
+	if (start == right)
+		left++;
+	if (end == left)
+		right--;
 	sort(start, right);
 	sort(left, end);
 }
