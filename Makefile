@@ -9,14 +9,15 @@ ARCH	= ft
 INCLUDE	= includes/
 
 SRCS	=	srcs/main.c \
-			srcs/get_input_data.c \
-			srcs/check_input_data.c \
-			srcs/check_array_data.c \
-			srcs/compare_character.c \
-			srcs/extract_array_from_input.c \
-			srcs/get_index_table.c \
-			srcs/sort_array.c \
-			srcs/normalize_the_array.c
+			srcs/init_data.c \
+			srcs/init_data/get_input_data.c \
+			srcs/init_data/check_input_data.c \
+			srcs/init_data/check_array_data.c \
+			srcs/init_data/compare_character.c \
+			srcs/init_data/extract_array_from_input.c \
+			srcs/init_data/get_index_table.c \
+			srcs/init_data/sort_array.c \
+			srcs/init_data/normalize_the_array.c
 
 B_SRCS	=
 
