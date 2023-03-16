@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 12:43:45 by bena              #+#    #+#             */
-/*   Updated: 2023/03/16 12:50:03 by bena             ###   ########.fr       */
+/*   Updated: 2023/03/16 13:05:54 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 void	get_input_data(t_input *memory, int ac, char **av);
 void	get_array_from_input(t_array *array, t_input *input);
-int		does_exist_same_number(t_array *array, t_array *index_table);
+int		does_exist_same_number(t_array *index_table);
 void	get_index_table(t_array *index_table, t_array *array);
 void	normalize_the_array(t_array *array, t_array *index_table);
 
@@ -33,7 +33,7 @@ void	initialize_data(t_array *array, int ac, char **av)
 	if (array->array == NULL)
 		return ;
 	get_index_table(&index_table, array);
-	if (does_exist_same_number(array, &index_table))
+	if (does_exist_same_number(&index_table))
 	{
 		free(array->array);
 		array->array = NULL;
