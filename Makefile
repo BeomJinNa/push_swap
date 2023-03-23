@@ -17,7 +17,8 @@ SRCS	=	srcs/main.c \
 			srcs/init_data/extract_array_from_input.c \
 			srcs/init_data/get_index_table.c \
 			srcs/init_data/sort_array.c \
-			srcs/init_data/normalize_the_array.c
+			srcs/init_data/normalize_the_array.c \
+			srcs/solve_push_swap.c
 
 B_SRCS	=
 
