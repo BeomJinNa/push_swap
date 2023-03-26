@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   m_rules.h                                          :+:      :+:    :+:   */
+/*   do_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/16 14:29:35 by bena              #+#    #+#             */
-/*   Updated: 2023/03/29 05:30:58 by bena             ###   ########.fr       */
+/*   Created: 2023/03/29 05:25:40 by bena              #+#    #+#             */
+/*   Updated: 2023/03/29 05:30:56 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef M_RULES_H
-# define M_RULES_H
+#include "s_stack.h"
+#include "m_rules.h"
 
-# define SA 101
-# define SB 102
-# define SS 103
-# define PA	104
-# define PB 105
-# define RA 106
-# define RB 107
-# define RR 108
-# define RRA 109
-# define RRB 110
-# define RRR 111
-#endif
+void	put_answer(t_status *stat, char answer);
+void	swap(t_stack *stack);
+
+void	do_sa(t_status *stat)
+{
+	swap(stat->a);
+	put_answer(stat, SA);
+}
+
+void	do_sb(t_status *stat)
+{
+	swap(stat->b);
+	put_answer(stat, SB);
+}
+
+void	do_ss(t_status *stat)
+{
+	swap(stat->a);
+	swap(stat->b);
+	put_answer(stat, SS);
+}

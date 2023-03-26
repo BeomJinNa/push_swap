@@ -1,7 +1,7 @@
 CC		= cc
 AR		= ar
 ARFLAGS	= crs
-CFLAGS	= -Wall -Wextra -Werror -g
+CFLAGS	= -Wall -Wextra -Werror
 
 NAME	= push_swap
 LIBS	= libft
@@ -10,16 +10,24 @@ INCLUDE	= includes/
 
 SRCS	=	srcs/main.c \
 			srcs/init_data.c \
-			srcs/init_data/get_input_data.c \
-			srcs/init_data/check_input_data.c \
 			srcs/init_data/check_array_data.c \
+			srcs/init_data/check_input_data.c \
 			srcs/init_data/compare_character.c \
 			srcs/init_data/extract_array_from_input.c \
 			srcs/init_data/get_index_table.c \
-			srcs/init_data/sort_array.c \
+			srcs/init_data/get_input_data.c \
 			srcs/init_data/normalize_the_array.c \
+			srcs/init_data/sort_array.c \
 			srcs/solve_push_swap.c \
-			srcs/solve_push_swap/init_stack.c
+			srcs/solve_push_swap/do_push.c \
+			srcs/solve_push_swap/do_r_rotate.c \
+			srcs/solve_push_swap/do_rotate.c \
+			srcs/solve_push_swap/do_swap.c \
+			srcs/solve_push_swap/init_stack.c \
+			srcs/solve_push_swap/push.c \
+			srcs/solve_push_swap/put_answer.c \
+			srcs/solve_push_swap/rotate.c \
+			srcs/solve_push_swap/swap.c
 
 B_SRCS	=
 

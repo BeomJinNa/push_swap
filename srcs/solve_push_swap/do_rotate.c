@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   m_rules.h                                          :+:      :+:    :+:   */
+/*   do_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/16 14:29:35 by bena              #+#    #+#             */
-/*   Updated: 2023/03/29 05:30:58 by bena             ###   ########.fr       */
+/*   Created: 2023/03/29 05:25:40 by bena              #+#    #+#             */
+/*   Updated: 2023/03/29 05:32:49 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef M_RULES_H
-# define M_RULES_H
+#include "s_stack.h"
+#include "m_rules.h"
 
-# define SA 101
-# define SB 102
-# define SS 103
-# define PA	104
-# define PB 105
-# define RA 106
-# define RB 107
-# define RR 108
-# define RRA 109
-# define RRB 110
-# define RRR 111
-#endif
+void	put_answer(t_status *stat, char answer);
+void	rotate(t_stack *stack);
+
+void	do_ra(t_status *stat)
+{
+	rotate(stat->a);
+	put_answer(stat, RA);
+}
+
+void	do_rb(t_status *stat)
+{
+	rotate(stat->b);
+	put_answer(stat, RB);
+}
+
+void	do_rr(t_status *stat)
+{
+	rotate(stat->a);
+	rotate(stat->b);
+	put_answer(stat, RR);
+}

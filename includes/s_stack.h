@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 03:42:52 by bena              #+#    #+#             */
-/*   Updated: 2023/03/27 02:31:45 by bena             ###   ########.fr       */
+/*   Updated: 2023/03/29 04:50:27 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,19 @@ typedef struct s_stack
 	t_elem	*gate;
 }			t_stack;
 
+typedef struct s_answer
+{
+	char	*sheet;
+	char	*ptr;
+	int		size;
+}			t_answer;
+
 typedef struct s_status
 {
-	int		number_of_elems;
-	char	*answer_sheet;
-	char	*ptr;
-	t_stack	*a;
-	t_stack	*b;
+	int			number_of_elems;
+	int			residual_elems;
+	t_stack		*a;
+	t_stack		*b;
+	t_answer	answer;
 }			t_status;
 #endif

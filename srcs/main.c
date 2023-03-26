@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 12:43:45 by bena              #+#    #+#             */
-/*   Updated: 2023/03/16 13:26:51 by bena             ###   ########.fr       */
+/*   Updated: 2023/03/29 01:12:04 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,13 @@ int	main(int ac, char **av)
 	if (array.array == NULL)
 		return (terminate_current_program(0));
 	answer_sheet = solve_push_swap(&array);
-	if (answer_sheet == NULL)
-	{
-		free(array.array);
-		return (terminate_current_program(0));
-	}
-	//print_answer(answer_sheet);
+//	if (answer_sheet == NULL)
+//	{
+//		free(array.array);
+//		return (terminate_current_program(0));
+//	}
+//	optimize_the_answer(answer_sheet);
+//	print_answer(answer_sheet);
 	free(answer_sheet);
 	free(array.array);
 	return (0);
