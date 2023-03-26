@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/16 14:26:07 by bena              #+#    #+#             */
-/*   Updated: 2023/03/24 04:34:34 by bena             ###   ########.fr       */
+/*   Created: 2023/03/27 02:32:40 by bena              #+#    #+#             */
+/*   Updated: 2023/03/27 02:32:46 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,33 @@
 #include "s_array.h"
 #include "s_stack.h"
 
-static char	*find_the_answer(t_stack *A, t_stack *B);
-static void	push_swap(t_status *stat);
+t_stack		*init_stack(t_array *array);
+t_stack		*release_stack(t_stack *stack);
+static char	*find_the_answer(t_stack *a, t_stack *b);
+//static void	push_swap(t_status *stat);
 
 char	*solve_push_swap(t_array *array)
 {
-	t_stack	A;
-	t_stack	B;
+	t_stack	*a;
+	t_stack	*b;
 	char	*answer_sheet;
 
-	A = init_stack(array);
-	if (A == NULL)
+	a = init_stack(array);
+	if (a == NULL)
 		return (NULL);
-	B = init_stack(NULL);
-	if (B == NULL)
+	b = init_stack(NULL);
+	if (b == NULL)
 	{
-		release_stack(&A);
+		release_stack(a);
 		return (NULL);
 	}
-	answer_sheet = find_the_answer(&A, &B);
-	release_stack(&A);
-	release_stack(&B);
+	answer_sheet = find_the_answer(a, b);
+	release_stack(a);
+	release_stack(b);
 	return (answer_sheet);
 }
 
-static char	*find_the_answer(t_stack *A, t_stack *B)
+static char	*find_the_answer(t_stack *a, t_stack *b)
 {
 	t_status	stat;
 	char		*answer_sheet;
@@ -46,15 +48,15 @@ static char	*find_the_answer(t_stack *A, t_stack *B)
 	answer_sheet = (char *)malloc(sizeof(char) * 8192);
 	if (answer_sheet == NULL)
 		return (NULL);
-	stat.number_of_elems = A->size;
-	stat.A = A;
-	stat.B = B;
+	stat.number_of_elems = a->size;
+	stat.a = a;
+	stat.b = b;
 	stat.answer_sheet = answer_sheet;
 	stat.ptr = answer_sheet;
-	push_swap(&stat);
+//	push_swap(&stat);
 	return (answer_sheet);
 }
 
-static void	push_swap(t_status *stat)
-{
-}
+//static void	push_swap(t_status *stat)
+//{
+//}
