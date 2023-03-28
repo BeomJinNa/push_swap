@@ -1,7 +1,7 @@
 CC		= cc
 AR		= ar
 ARFLAGS	= crs
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -g3 -fsanitize=address -Wall -Wextra -Werror
 
 NAME	= push_swap
 LIBS	= libft
