@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 02:32:40 by bena              #+#    #+#             */
-/*   Updated: 2023/03/29 05:43:30 by bena             ###   ########.fr       */
+/*   Updated: 2023/03/29 07:32:52 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@
 
 t_stack			*init_stack(t_array *array);
 t_stack			*release_stack(t_stack *stack);
+void			sort_residual_elems(t_status *stat);
 static char		*find_the_answer(t_stack *a, t_stack *b);
 static void		push_swap(t_status *stat);
-static double	get_ratio(int N);
+//static double	get_ratio(int N);
 
 char	*solve_push_swap(t_array *array)
 {
@@ -55,29 +56,30 @@ static char	*find_the_answer(t_stack *a, t_stack *b)
 	stat.b = b;
 	stat.answer.ptr = stat.answer.sheet;
 	push_swap(&stat);
+	*stat.answer.ptr = '\0';
 	return (stat.answer.sheet);
 }
 
 static void	push_swap(t_status *stat)
 {
-	double	ratio;
-	int		elems_to_push;
+//	double	ratio;
+//	int		elems_to_push;
 
 	if (stat->number_of_elems <= 3)
-		return (sort_maximal_elems(stat));
-	while (stat->residual_elems > 3)
-	{
-		ratio = get_ratio(stat->number_of_elems);
-		elems_to_push = (int)(stat->residual_elems * ratio);
-		if (stat->residual_elems - elems_to_push <= 3)
-			elems_to_push = stat->residual_elems - 3;
-		push_less_elems(stat, elems_to_push);
-		stat->residual_elems -= elems_to_push;
-	}
-	sort_maximal_elems(stat);
-	recall_elems(stat);
+		return (sort_residual_elems(stat));
+//	while (stat->residual_elems > 3)
+//	{
+//		ratio = get_ratio(stat->number_of_elems);
+//		elems_to_push = (int)(stat->residual_elems * ratio);
+//		if (stat->residual_elems - elems_to_push <= 3)
+//			elems_to_push = stat->residual_elems - 3;
+//		push_less_elems(stat, elems_to_push);
+//		stat->residual_elems -= elems_to_push;
+//	}
+//	sort_residual_elems(stat);
+//	recall_elems(stat);
 }
-
+/*
 static double	get_ratio(int N)
 {
 	int				i;
@@ -98,4 +100,6 @@ static double	get_ratio(int N)
 		i++;
 	}
 	result = 2.0 / (result + 1.0);
+	return (result);
 }
+*/

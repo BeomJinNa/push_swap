@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 03:56:20 by bena              #+#    #+#             */
-/*   Updated: 2023/03/29 04:29:50 by bena             ###   ########.fr       */
+/*   Updated: 2023/03/29 07:31:10 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	put_answer(t_status *stat, char answer)
 		extend_sheet_size(stat);
 	if (stat->answer.sheet == NULL)
 		return ;
-	stat->answer.ptr++ = answer;
+	*(stat->answer.ptr)++ = answer;
 }
 
 static void	extend_sheet_size(t_status *stat)
@@ -41,7 +41,7 @@ static void	extend_sheet_size(t_status *stat)
 		stat->answer.ptr = NULL;
 	}
 	size = stat->answer.ptr - stat->answer.sheet;
-	from = stat->sheet;
+	from = stat->answer.sheet;
 	to = new_sheet;
 	stat->answer.ptr = to + size;
 	while (size-- > 0)

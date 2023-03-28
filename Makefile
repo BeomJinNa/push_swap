@@ -18,6 +18,7 @@ SRCS	=	srcs/main.c \
 			srcs/init_data/get_input_data.c \
 			srcs/init_data/normalize_the_array.c \
 			srcs/init_data/sort_array.c \
+			srcs/print_answer.c \
 			srcs/solve_push_swap.c \
 			srcs/solve_push_swap/do_push.c \
 			srcs/solve_push_swap/do_r_rotate.c \
@@ -27,6 +28,7 @@ SRCS	=	srcs/main.c \
 			srcs/solve_push_swap/push.c \
 			srcs/solve_push_swap/put_answer.c \
 			srcs/solve_push_swap/rotate.c \
+			srcs/solve_push_swap/sort_residual_elems.c \
 			srcs/solve_push_swap/swap.c
 
 B_SRCS	=

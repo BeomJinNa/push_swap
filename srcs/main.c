@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 12:43:45 by bena              #+#    #+#             */
-/*   Updated: 2023/03/29 01:12:04 by bena             ###   ########.fr       */
+/*   Updated: 2023/03/29 07:20:28 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 void		initialize_data(t_array *array, int ac, char **av);
 char		*solve_push_swap(t_array *array);
-//void		print_answer(char *answer_sheet);
+void		print_answer(char *answer_sheet);
 static int	terminate_current_program(int output);
 
 int	main(int ac, char **av)
@@ -31,13 +31,13 @@ int	main(int ac, char **av)
 	if (array.array == NULL)
 		return (terminate_current_program(0));
 	answer_sheet = solve_push_swap(&array);
-//	if (answer_sheet == NULL)
-//	{
-//		free(array.array);
-//		return (terminate_current_program(0));
-//	}
+	if (answer_sheet == NULL)
+	{
+		free(array.array);
+		return (terminate_current_program(0));
+	}
 //	optimize_the_answer(answer_sheet);
-//	print_answer(answer_sheet);
+	print_answer(answer_sheet);
 	free(answer_sheet);
 	free(array.array);
 	return (0);
