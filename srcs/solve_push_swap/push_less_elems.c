@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 07:46:04 by bena              #+#    #+#             */
-/*   Updated: 2023/03/29 08:47:07 by bena             ###   ########.fr       */
+/*   Updated: 2023/03/30 00:09:59 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static int	search_the_distance_in_backward(t_status *stat, int max_value);
 static void	push_forward(t_status *stat, int distance, int max);
 static void	push_backward(t_status *stat, int distance, int max);
 
-void	push_less_elems(t_status *stat, int	number_of_elems_to_push)
+void	push_less_elems(t_status *stat, int number_of_elems_to_push)
 {
 	int	min_value;
 	int	max_value;

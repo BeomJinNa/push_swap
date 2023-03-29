@@ -6,12 +6,11 @@
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 04:55:06 by bena              #+#    #+#             */
-/*   Updated: 2023/03/29 07:30:14 by bena             ###   ########.fr       */
+/*   Updated: 2023/03/30 00:15:16 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "s_stack.h"
-#define NULL 0
 
 static void	delete_the_gate_elem(t_stack *stack);
 static void	add_the_elem_into_the_gate(t_elem *target, t_stack *stack);
@@ -27,7 +26,7 @@ void	push(t_stack *from, t_stack *to)
 	if (from->size > 0)
 		delete_the_gate_elem(from);
 	else
-		from->gate = NULL;
+		from->gate = (void *)0;
 	if (to->size > 0)
 		add_the_elem_into_the_gate(target, to);
 	else

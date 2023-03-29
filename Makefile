@@ -1,7 +1,7 @@
 CC		= cc
 AR		= ar
 ARFLAGS	= crs
-CFLAGS	= -g3 -fsanitize=address -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror
 
 NAME	= push_swap
 LIBS	= libft
@@ -26,7 +26,9 @@ SRCS	=	srcs/main.c \
 			srcs/solve_push_swap/do_swap.c \
 			srcs/solve_push_swap/init_stack.c \
 			srcs/solve_push_swap/push.c \
+			srcs/solve_push_swap/push_less_elems.c \
 			srcs/solve_push_swap/put_answer.c \
+			srcs/solve_push_swap/recall_one_elem.c \
 			srcs/solve_push_swap/rotate.c \
 			srcs/solve_push_swap/sort_residual_elems.c \
 			srcs/solve_push_swap/swap.c

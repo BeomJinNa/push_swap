@@ -6,10 +6,9 @@
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 02:32:40 by bena              #+#    #+#             */
-/*   Updated: 2023/03/29 08:51:43 by bena             ###   ########.fr       */
+/*   Updated: 2023/03/30 01:10:26 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include <stdlib.h>
 #include "s_array.h"
 #include "s_stack.h"
@@ -17,12 +16,12 @@
 t_stack			*init_stack(t_array *array);
 t_stack			*release_stack(t_stack *stack);
 void			sort_residual_elems(t_status *stat);
-void			push_less_elems(t_status *stat, int	number_of_elems_to_push);
+void			push_less_elems(t_status *stat, int number_of_elems_to_push);
+void			recall_one_elem(t_status *stat);
 static char		*find_the_answer(t_stack *a, t_stack *b);
 static void		push_swap(t_status *stat);
 static double	get_ratio(int N);
 
-#include <stdio.h>
 char	*solve_push_swap(t_array *array)
 {
 	t_stack	*a;
@@ -39,21 +38,6 @@ char	*solve_push_swap(t_array *array)
 		return (NULL);
 	}
 	answer_sheet = find_the_answer(a, b);
-	t_elem	*ptr; //TEST
-	ptr = a->gate;
-	printf("Stack A\n%d\n", ptr->value);
-	while (ptr->next != a->gate)
-	{
-		ptr = ptr->next;
-		printf("%d\n", ptr->value);
-	}
-	ptr = b->gate;
-	printf("Stack B\n%d\n", ptr->value);
-	while (ptr->next != b->gate)
-	{
-		ptr = ptr->next;
-		printf("%d\n", ptr->value);
-	} //TEST END
 	release_stack(a);
 	release_stack(b);
 	return (answer_sheet);
@@ -91,10 +75,10 @@ static void	push_swap(t_status *stat)
 		if (stat->residual_elems - elems_to_push <= 3)
 			elems_to_push = stat->residual_elems - 3;
 		push_less_elems(stat, elems_to_push);
-		stat->residual_elems -= elems_to_push;
 	}
 	sort_residual_elems(stat);
-//	recall_elems(stat);
+	while (stat->b->gate != NULL)
+		recall_one_elem(stat);
 }
 
 static double	get_ratio(int N)
@@ -119,4 +103,3 @@ static double	get_ratio(int N)
 	result = 2.0 / (result + 1.0);
 	return (result);
 }
-
