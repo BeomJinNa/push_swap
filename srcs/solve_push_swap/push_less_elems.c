@@ -1,18 +1,19 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
+/*                                                                            */ /*                                                        :::      ::::::::   */
 /*   push_less_elems.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 07:46:04 by bena              #+#    #+#             */
-/*   Updated: 2023/03/30 00:09:59 by bena             ###   ########.fr       */
+/*   Updated: 2023/03/30 06:50:05 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "s_stack.h"
 #include "rules.h"
 
+int			get_next_value_forward(t_status *stat, int max);
+int			get_next_value_backward(t_status *stat, int max);
 static int	search_the_distance_in_forward(t_status *stat, int max_value);
 static int	search_the_distance_in_backward(t_status *stat, int max_value);
 static void	push_forward(t_status *stat, int distance, int max);
@@ -81,12 +82,20 @@ static int	search_the_distance_in_backward(t_status *stat, int max_value)
 
 static void	push_forward(t_status *stat, int distance, int max)
 {
+	int	next;
+
 	while (distance > 0)
 	{
 		if (stat->a->gate->value <= max)
 			do_pb(stat);
 		else
-			do_ra(stat);
+		{
+			next = get_next_value_forward(stat, max);
+			if (stat->b->gate != (void *)0 && next < stat->b->gate->value)
+				do_rr(stat);
+			else
+				do_ra(stat);
+		}
 		distance--;
 	}
 	if (stat->a->gate->value <= max)

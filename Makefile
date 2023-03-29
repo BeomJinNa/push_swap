@@ -1,7 +1,7 @@
 CC		= cc
 AR		= ar
 ARFLAGS	= crs
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -g -Wall -Wextra -Werror
 
 NAME	= push_swap
 LIBS	= libft
@@ -24,6 +24,7 @@ SRCS	=	srcs/main.c \
 			srcs/solve_push_swap/do_r_rotate.c \
 			srcs/solve_push_swap/do_rotate.c \
 			srcs/solve_push_swap/do_swap.c \
+			srcs/solve_push_swap/get_next_value.c \
 			srcs/solve_push_swap/init_stack.c \
 			srcs/solve_push_swap/push.c \
 			srcs/solve_push_swap/push_less_elems.c \
