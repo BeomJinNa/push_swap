@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/13 11:07:05 by bena              #+#    #+#             */
-/*   Updated: 2023/03/16 12:09:58 by bena             ###   ########.fr       */
+/*   Created: 2023/03/30 02:36:34 by bena              #+#    #+#             */
+/*   Updated: 2023/03/30 02:36:40 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,17 +42,15 @@ static void	sort(int *start, int *end)
 		if (left < right)
 			swap(left, right);
 	}
-	if (start == right)
+	if (left == right)
 		left++;
-	if (end == left)
-		right--;
 	sort(start, right);
 	sort(left, end);
 }
 
 static void	finish_sort(int *start, int *end)
 {
-	if (end - start == 0)
+	if (end == start)
 		return ;
 	if (end - start == 1)
 	{

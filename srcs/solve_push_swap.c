@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 02:32:40 by bena              #+#    #+#             */
-/*   Updated: 2023/03/30 01:10:26 by bena             ###   ########.fr       */
+/*   Updated: 2023/03/30 04:46:36 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
@@ -70,7 +70,7 @@ static void	push_swap(t_status *stat)
 		return (sort_residual_elems(stat));
 	while (stat->residual_elems > 3)
 	{
-		ratio = get_ratio(stat->number_of_elems);
+		ratio = get_ratio(stat->residual_elems);
 		elems_to_push = (int)(stat->residual_elems * ratio);
 		if (stat->residual_elems - elems_to_push <= 3)
 			elems_to_push = stat->residual_elems - 3;
@@ -93,7 +93,7 @@ static double	get_ratio(int N)
 	before = 0;
 	result = (double)N;
 	gap = 1.0;
-	while (i < 100 && (gap >= gap_epsilon || - gap >= gap_epsilon))
+	while (i < 30 && (gap >= gap_epsilon || - gap >= gap_epsilon))
 	{
 		before = result;
 		result = (result + ((double)N / result)) / 2;

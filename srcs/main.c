@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 12:43:45 by bena              #+#    #+#             */
-/*   Updated: 2023/03/30 01:07:18 by bena             ###   ########.fr       */
+/*   Updated: 2023/03/30 04:37:52 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ char		*solve_push_swap(t_array *array);
 void		print_answer(char *answer_sheet);
 static int	terminate_current_program(int output);
 
-#include <stdio.h>
 int	main(int ac, char **av)
 {
 	t_array	array;
@@ -31,11 +30,6 @@ int	main(int ac, char **av)
 	initialize_data(&array, ac, av);
 	if (array.array == NULL)
 		return (terminate_current_program(0));
-	//TEST
-	int i = -1;
-	while (++i < array.number_of_parameters)
-		printf("%d\n", array.array[i]);
-	//TEST END
 	answer_sheet = solve_push_swap(&array);
 	if (answer_sheet == NULL)
 	{
