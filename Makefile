@@ -32,7 +32,8 @@ SRCS	=	srcs/main.c \
 			srcs/solve_push_swap/recall_one_elem.c \
 			srcs/solve_push_swap/rotate.c \
 			srcs/solve_push_swap/sort_residual_elems.c \
-			srcs/solve_push_swap/swap.c
+			srcs/solve_push_swap/swap.c \
+			srcs/optimize_the_answer.c
 
 B_SRCS	=
 
