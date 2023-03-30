@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 14:10:42 by bena              #+#    #+#             */
-/*   Updated: 2023/03/16 15:00:43 by bena             ###   ########.fr       */
+/*   Updated: 2023/03/30 12:15:31 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,8 @@ static int	does_any_overflow_occur(t_input *memory)
 	{
 		count_digits = 0;
 		while (*ptr && (is_this_sign(*ptr) || is_this_space(*ptr)))
+			ptr++;
+		while (*ptr == '0')
 			ptr++;
 		while (ft_isdigit(*ptr))
 		{
