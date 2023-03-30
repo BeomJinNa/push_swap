@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_striteri_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 20:41:54 by bena              #+#    #+#             */
-/*   Updated: 2023/03/31 06:22:53 by bena             ###   ########.fr       */
+/*   Created: 2022/11/25 14:46:14 by bena              #+#    #+#             */
+/*   Updated: 2023/03/31 06:19:33 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	unsigned char	*c1;
-	unsigned char	*c2;
+	char	*ptr;
 
-	c1 = (unsigned char *)s1;
-	c2 = (unsigned char *)s2;
-	while (n)
+	ptr = s;
+	while (*ptr)
 	{
-		if (*c1 != *c2)
-			return (*c1 - *c2);
-		n--;
-		c1++;
-		c2++;
+		f(ptr - s, ptr);
+		ptr++;
 	}
-	return (0);
 }

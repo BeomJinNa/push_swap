@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 20:41:54 by bena              #+#    #+#             */
-/*   Updated: 2023/03/31 06:22:53 by bena             ###   ########.fr       */
+/*   Created: 2023/02/23 10:17:46 by bena              #+#    #+#             */
+/*   Updated: 2023/03/31 06:20:47 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+# include <stdlib.h>
+# include <unistd.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 4096
+# endif
+
+typedef struct s_buf
 {
-	unsigned char	*c1;
-	unsigned char	*c2;
+	char			is_this_dynamic;
+	char			*buf;
+	char			*buf_end;
+	char			*scanner;
+	ssize_t			read_bytes;
+	int				buf_size;
+	int				fd;
+	struct s_buf	*next;
+	struct s_buf	*before;
+}					t_buf;
 
-	c1 = (unsigned char *)s1;
-	c2 = (unsigned char *)s2;
-	while (n)
-	{
-		if (*c1 != *c2)
-			return (*c1 - *c2);
-		n--;
-		c1++;
-		c2++;
-	}
-	return (0);
-}
+char			*get_next_line(int fd);
+#endif

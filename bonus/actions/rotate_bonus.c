@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   rotate_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 20:41:54 by bena              #+#    #+#             */
-/*   Updated: 2023/03/31 06:22:53 by bena             ###   ########.fr       */
+/*   Created: 2023/03/29 04:51:01 by bena              #+#    #+#             */
+/*   Updated: 2023/03/31 06:49:49 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "s_stack_bonus.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+void	rotate(t_stack *stack)
 {
-	unsigned char	*c1;
-	unsigned char	*c2;
+	if (stack->size < 2)
+		return ;
+	stack->gate = stack->gate->next;
+}
 
-	c1 = (unsigned char *)s1;
-	c2 = (unsigned char *)s2;
-	while (n)
-	{
-		if (*c1 != *c2)
-			return (*c1 - *c2);
-		n--;
-		c1++;
-		c2++;
-	}
-	return (0);
+void	r_rotate(t_stack *stack)
+{
+	if (stack->size < 2)
+		return ;
+	stack->gate = stack->gate->before;
 }

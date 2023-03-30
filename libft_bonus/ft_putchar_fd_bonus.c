@@ -1,31 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 20:41:54 by bena              #+#    #+#             */
-/*   Updated: 2023/03/31 06:22:53 by bena             ###   ########.fr       */
+/*   Created: 2022/11/25 14:54:10 by bena              #+#    #+#             */
+/*   Updated: 2023/03/31 06:19:25 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <unistd.h>
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+void	ft_putchar_fd(char c, int fd)
 {
-	unsigned char	*c1;
-	unsigned char	*c2;
-
-	c1 = (unsigned char *)s1;
-	c2 = (unsigned char *)s2;
-	while (n)
-	{
-		if (*c1 != *c2)
-			return (*c1 - *c2);
-		n--;
-		c1++;
-		c2++;
-	}
-	return (0);
+	write(fd, &c, 1);
 }

@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   get_index_table_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 20:41:54 by bena              #+#    #+#             */
-/*   Updated: 2023/03/31 06:22:53 by bena             ###   ########.fr       */
+/*   Created: 2023/03/14 15:37:37 by bena              #+#    #+#             */
+/*   Updated: 2023/03/31 05:58:52 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "s_array_bonus.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+void	sort_array(t_array *array);
+
+void	get_index_table(t_array *index_table, t_array *array)
 {
-	unsigned char	*c1;
-	unsigned char	*c2;
+	int	size;
 
-	c1 = (unsigned char *)s1;
-	c2 = (unsigned char *)s2;
-	while (n)
-	{
-		if (*c1 != *c2)
-			return (*c1 - *c2);
-		n--;
-		c1++;
-		c2++;
-	}
-	return (0);
+	size = array->number_of_parameters;
+	index_table->array = (int *)malloc(sizeof(int) * size);
+	if (index_table->array == NULL)
+		return ;
+	index_table->number_of_parameters = size;
+	while (size-- > 0)
+		index_table->array[size] = array->array[size];
+	sort_array(index_table);
 }

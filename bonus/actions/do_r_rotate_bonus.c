@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   do_r_rotate_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 20:41:54 by bena              #+#    #+#             */
-/*   Updated: 2023/03/31 06:22:53 by bena             ###   ########.fr       */
+/*   Created: 2023/03/29 05:25:40 by bena              #+#    #+#             */
+/*   Updated: 2023/03/31 06:54:01 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "s_stack_bonus.h"
+#include "m_rules_bonus.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+void	r_rotate(t_stack *stack);
+
+void	do_rra(t_status *stat)
 {
-	unsigned char	*c1;
-	unsigned char	*c2;
+	r_rotate(stat->a);
+}
 
-	c1 = (unsigned char *)s1;
-	c2 = (unsigned char *)s2;
-	while (n)
-	{
-		if (*c1 != *c2)
-			return (*c1 - *c2);
-		n--;
-		c1++;
-		c2++;
-	}
-	return (0);
+void	do_rrb(t_status *stat)
+{
+	r_rotate(stat->b);
+}
+
+void	do_rrr(t_status *stat)
+{
+	r_rotate(stat->a);
+	r_rotate(stat->b);
 }

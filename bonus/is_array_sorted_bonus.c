@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   is_array_sorted_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 20:41:54 by bena              #+#    #+#             */
-/*   Updated: 2023/03/31 06:22:53 by bena             ###   ########.fr       */
+/*   Created: 2023/03/31 05:08:21 by bena              #+#    #+#             */
+/*   Updated: 2023/03/31 06:52:29 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "s_stack_bonus.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+int	is_array_sorted(t_status *stat)
 {
-	unsigned char	*c1;
-	unsigned char	*c2;
+	t_elem	*ptr;
 
-	c1 = (unsigned char *)s1;
-	c2 = (unsigned char *)s2;
-	while (n)
+	if (stat->b->gate != (void *)0)
+		return (0);
+	ptr = stat->a->gate;
+	while (ptr->next != stat->a->gate)
 	{
-		if (*c1 != *c2)
-			return (*c1 - *c2);
-		n--;
-		c1++;
-		c2++;
+		if (ptr->value > ptr->next->value)
+			return (0);
+		ptr = ptr->next;
 	}
-	return (0);
+	return (1);
 }

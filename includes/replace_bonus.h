@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   replace_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 20:41:54 by bena              #+#    #+#             */
-/*   Updated: 2023/03/31 06:22:53 by bena             ###   ########.fr       */
+/*   Created: 2023/03/30 08:27:08 by bena              #+#    #+#             */
+/*   Updated: 2023/03/31 05:59:36 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#ifndef REPLACE_BONUS_H
+# define REPLACE_BONUS_H
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
-{
-	unsigned char	*c1;
-	unsigned char	*c2;
-
-	c1 = (unsigned char *)s1;
-	c2 = (unsigned char *)s2;
-	while (n)
-	{
-		if (*c1 != *c2)
-			return (*c1 - *c2);
-		n--;
-		c1++;
-		c2++;
-	}
-	return (0);
-}
+# define PB_PA "ih"
+# define OO "  "
+# define RA_PB_RRA "jim"
+# define SA_PB_O "ei "
+# define RB_PA_RRB "khn"
+# define SB_PA_O "fh "
+# define SB_PA_PA_SB "fhhf"
+# define PA_PA_SS_O "hhg "
+# define SA_PB_PB_SA "eiie"
+# define PB_PB_SS_O "iig "
+#endif

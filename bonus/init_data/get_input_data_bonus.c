@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_input_data.c                                   :+:      :+:    :+:   */
+/*   get_input_data_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 12:43:45 by bena              #+#    #+#             */
-/*   Updated: 2023/03/31 02:52:34 by bena             ###   ########.fr       */
+/*   Updated: 2023/03/31 05:58:53 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "s_input.h"
+#include "libft_bonus.h"
+#include "s_input_bonus.h"
 
 int			does_input_error_exist(t_input *memory);
 int			is_this_space(int c);

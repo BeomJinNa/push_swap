@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   compare_character_bonus.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 20:41:54 by bena              #+#    #+#             */
-/*   Updated: 2023/03/31 06:22:53 by bena             ###   ########.fr       */
+/*   Created: 2023/02/28 14:10:42 by bena              #+#    #+#             */
+/*   Updated: 2023/03/31 05:58:50 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+int	is_this_wrong_character(int c)
 {
-	unsigned char	*c1;
-	unsigned char	*c2;
+	if (c == 32 || (9 <= c && c <= 13) || ('0' <= c && c <= '9')
+		|| c == '+' || c == '-')
+		return (0);
+	return (1);
+}
 
-	c1 = (unsigned char *)s1;
-	c2 = (unsigned char *)s2;
-	while (n)
-	{
-		if (*c1 != *c2)
-			return (*c1 - *c2);
-		n--;
-		c1++;
-		c2++;
-	}
-	return (0);
+int	is_this_space(int c)
+{
+	return (c == 32 || (9 <= c && c <= 13));
+}
+
+int	is_this_sign(int c)
+{
+	return (c == '+' || c == '-');
 }

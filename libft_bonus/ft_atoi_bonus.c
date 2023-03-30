@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_atoi_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 20:41:54 by bena              #+#    #+#             */
-/*   Updated: 2023/03/31 06:22:53 by bena             ###   ########.fr       */
+/*   Created: 2022/09/05 21:17:32 by bena              #+#    #+#             */
+/*   Updated: 2023/03/31 06:18:59 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+static int	ft_isspace(int c)
 {
-	unsigned char	*c1;
-	unsigned char	*c2;
+	return (c == 32 || (9 <= c && c <= 13));
+}
 
-	c1 = (unsigned char *)s1;
-	c2 = (unsigned char *)s2;
-	while (n)
+int	ft_atoi(const char *str)
+{
+	int	sign;
+	int	output;
+
+	while (ft_isspace(*str))
+		str++;
+	sign = 1;
+	if (*str == '+' || *str == '-')
+		if (*str++ == '-')
+			sign = -1;
+	output = 0;
+	while ('0' <= *str && *str <= '9')
 	{
-		if (*c1 != *c2)
-			return (*c1 - *c2);
-		n--;
-		c1++;
-		c2++;
+		output = output * 10 + *str - '0';
+		str++;
 	}
-	return (0);
+	return (sign * output);
 }

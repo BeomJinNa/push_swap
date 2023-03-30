@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   rules_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 20:41:54 by bena              #+#    #+#             */
-/*   Updated: 2023/03/31 06:22:53 by bena             ###   ########.fr       */
+/*   Created: 2023/03/29 05:48:43 by bena              #+#    #+#             */
+/*   Updated: 2023/03/31 05:59:37 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#ifndef RULES_BONUS_H
+# define RULES_BONUS_H
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
-{
-	unsigned char	*c1;
-	unsigned char	*c2;
-
-	c1 = (unsigned char *)s1;
-	c2 = (unsigned char *)s2;
-	while (n)
-	{
-		if (*c1 != *c2)
-			return (*c1 - *c2);
-		n--;
-		c1++;
-		c2++;
-	}
-	return (0);
-}
+void	do_sa(t_status *stat);
+void	do_sb(t_status *stat);
+void	do_ss(t_status *stat);
+void	do_pa(t_status *stat);
+void	do_pb(t_status *stat);
+void	do_ra(t_status *stat);
+void	do_rb(t_status *stat);
+void	do_rr(t_status *stat);
+void	do_rra(t_status *stat);
+void	do_rrb(t_status *stat);
+void	do_rrr(t_status *stat);
+#endif

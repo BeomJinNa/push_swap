@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_memmove_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 20:41:54 by bena              #+#    #+#             */
-/*   Updated: 2023/03/31 06:22:53 by bena             ###   ########.fr       */
+/*   Created: 2022/11/18 15:03:58 by bena              #+#    #+#             */
+/*   Updated: 2023/03/31 06:19:23 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned char	*c1;
-	unsigned char	*c2;
+	unsigned char	*address_src;
+	unsigned char	*address_dst;
 
-	c1 = (unsigned char *)s1;
-	c2 = (unsigned char *)s2;
-	while (n)
+	if (src == 0 && dst == 0)
+		return (0);
+	address_src = (unsigned char *)src;
+	address_dst = (unsigned char *)dst;
+	if (address_src > address_dst)
+		while (len--)
+			*address_dst++ = *address_src++;
+	else
 	{
-		if (*c1 != *c2)
-			return (*c1 - *c2);
-		n--;
-		c1++;
-		c2++;
+		while (len)
+		{
+			*(address_dst + len - 1) = *(address_src + len - 1);
+			len--;
+		}
 	}
-	return (0);
+	return (dst);
 }
