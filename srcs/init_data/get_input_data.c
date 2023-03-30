@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 12:43:45 by bena              #+#    #+#             */
-/*   Updated: 2023/03/14 12:36:46 by bena             ###   ########.fr       */
+/*   Updated: 2023/03/30 13:17:24 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,16 @@
 
 int			does_input_error_exist(t_input *memory);
 int			is_this_space(int c);
+static int	does_empty_arg_exist(int ac, char **av);
 static char	*get_linked_input_string(int ac, char **av);
 static int	get_number_of_parameters(const char *str);
 
-void	get_input_data(t_input *memory, int ac, char **av)
-{
+void	get_input_data(t_input *memory, int ac, char **av) {
+	if (does_empty_arg_exist(ac, av))
+	{
+		memory->input = NULL;
+		return ;
+	}
 	memory->input = get_linked_input_string(ac, av);
 	if (memory->input == NULL)
 		return ;
@@ -29,6 +34,25 @@ void	get_input_data(t_input *memory, int ac, char **av)
 		free(memory->input);
 		memory->input = NULL;
 	}
+}
+
+static int	does_empty_arg_exist(int ac, char **av)
+{
+	char	*ptr;
+
+	while (--ac > 0)
+	{
+		ptr = av[ac];
+		while (*ptr)
+		{
+			if (ft_isdigit(*ptr))
+				break ;
+			ptr++;
+		}
+		if (*ptr == '\0')
+			return (1);
+	}
+	return (0);
 }
 
 static char	*get_linked_input_string(int ac, char **av)
