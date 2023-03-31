@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 02:32:40 by bena              #+#    #+#             */
-/*   Updated: 2023/03/31 02:45:30 by bena             ###   ########.fr       */
+/*   Updated: 2023/04/09 00:23:19 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
@@ -102,6 +102,6 @@ static double	get_ratio(int N)
 		gap = result - before;
 		i++;
 	}
-	result = 2.5 / result;
+	result = 3.0 / result;
 	return (result);
 }

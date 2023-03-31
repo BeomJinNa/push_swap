@@ -29,6 +29,7 @@ SRCS	=	srcs/main.c \
 			srcs/solve_push_swap/do_swap.c \
 			srcs/solve_push_swap/get_next_value.c \
 			srcs/solve_push_swap/init_stack.c \
+			srcs/solve_push_swap/is_there_anything_to_overcome.c \
 			srcs/solve_push_swap/push.c \
 			srcs/solve_push_swap/push_less_elems.c \
 			srcs/solve_push_swap/put_answer.c \

@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 08:27:08 by bena              #+#    #+#             */
-/*   Updated: 2023/03/30 11:51:44 by bena             ###   ########.fr       */
+/*   Updated: 2023/04/03 14:39:24 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,18 @@
 # define REPLACE_H
 
 # define PB_PA "ih"
+# define PA_PB "hi"
+# define RA_RRA "jm"
+# define RB_RRB "kn"
+# define RRA_RA "mj"
+# define RRB_RB "nk"
 # define OO "  "
+# define RA_RB "jk"
+# define RB_RA "kj"
+# define RR_O "l "
+# define RRA_RRB "mn"
+# define RRB_RRA "nm"
+# define RRR_O "o "
 # define RA_PB_RRA "jim"
 # define SA_PB_O "ei "
 # define RB_PA_RRB "khn"

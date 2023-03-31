@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 03:42:52 by bena              #+#    #+#             */
-/*   Updated: 2023/03/31 05:59:42 by bena             ###   ########.fr       */
+/*   Updated: 2023/03/31 08:27:28 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct s_status
 {
 	int			number_of_elems;
 	int			residual_elems;
+	int			distance_to_origin;
 	t_stack		*a;
 	t_stack		*b;
 	t_answer	answer;
