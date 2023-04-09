@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 02:32:40 by bena              #+#    #+#             */
-/*   Updated: 2023/04/09 23:32:09 by bena             ###   ########.fr       */
+/*   Updated: 2023/04/10 00:30:53 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void			push_less_elems(t_status *stat, int number_of_elems_to_push);
 void			recall_one_elem(t_status *stat);
 static char		*find_the_answer(t_stack *a, t_stack *b);
 static void		push_swap(t_status *stat);
+static double	get_ratio(int N);
 
 char	*solve_push_swap(t_array *array)
 {
@@ -70,7 +71,7 @@ static void	push_swap(t_status *stat)
 		return (sort_residual_elems(stat));
 	while (stat->residual_elems > 3)
 	{
-		ratio = 2.0 / 3.0;
+		ratio = get_ratio(stat->residual_elems);
 		elems_to_push = (int)(stat->residual_elems * ratio);
 		if (elems_to_push < 1)
 			elems_to_push = 1;
@@ -81,4 +82,27 @@ static void	push_swap(t_status *stat)
 	sort_residual_elems(stat);
 	while (stat->b->gate != NULL)
 		recall_one_elem(stat);
+}
+
+static double	get_ratio(int N)
+{
+	int				i;
+	double			before;
+	double			result;
+	double			gap;
+	const double	gap_epsilon = 0.0001;
+
+	i = 0;
+	before = 0;
+	result = (double)N;
+	gap = 1.0;
+	while (i < 30 && (gap >= gap_epsilon || - gap >= gap_epsilon))
+	{
+		before = result;
+		result = (result + ((double)N / result)) / 2;
+		gap = result - before;
+		i++;
+	}
+	result = 5.6 / result;
+	return (result);
 }

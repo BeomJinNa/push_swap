@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 08:46:53 by bena              #+#    #+#             */
-/*   Updated: 2023/04/09 23:46:39 by bena             ###   ########.fr       */
+/*   Updated: 2023/04/10 00:16:05 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	divide_chunk(t_status *stat, int number_of_elems_to_divide)
 	int	distance;
 	int	count;
 
-	if (number_of_elems_to_divide < 27)
+	if (number_of_elems_to_divide <= 18)
 		return ;
 	min_value = get_the_min_value(stat, number_of_elems_to_divide);
 	max_value = get_the_max_value(stat, number_of_elems_to_divide);
