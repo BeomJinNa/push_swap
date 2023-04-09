@@ -6,22 +6,18 @@
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 08:46:53 by bena              #+#    #+#             */
-/*   Updated: 2023/04/07 13:21:08 by bena             ###   ########.fr       */
+/*   Updated: 2023/04/09 23:12:46 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "s_stack.h"
 #include "rules.h"
 
-int			get_next_value_forward(t_status *stat, int max);
-int			get_next_value_backward(t_status *stat, int max);
-int			are_there_any_larger_number(t_status *stat, int pivot, int block);
-int			are_there_any_smaller_number(t_status *stat, int pivot, int block);
-void		put_over_largers(t_status *stat, int pivot, int block);
-void		put_over_smallers(t_status *stat, int pivot, int block);
+void		divide_chunk(t_status *stat, int number_of_elems_to_divide);
 static int	search_the_distance_in_forward(t_status *stat, int max_value);
 static int	search_the_distance_in_backward(t_status *stat, int max_value);
-static void	push_forward(t_status *stat, int distance, int max, int min); static void	push_backward(t_status *stat, int distance, int max, int min);
+static void	push_forward(t_status *stat, int distance, int max, int min);
+static void	push_backward(t_status *stat, int distance, int max, int min);
 
 void	push_less_elems(t_status *stat, int number_of_elems_to_push)
 {
@@ -29,7 +25,7 @@ void	push_less_elems(t_status *stat, int number_of_elems_to_push)
 	int	max_value;
 	int	forward_distance;
 	int	backward_distance;
-	int mid_index;
+	int	mid_index;
 
 	if (number_of_elems_to_push == 0)
 		return ;
@@ -45,8 +41,10 @@ void	push_less_elems(t_status *stat, int number_of_elems_to_push)
 		else
 			push_backward(stat, backward_distance, max_value, min_value);
 	}
+	divide_chunk(stat, max_value - min_value + 1 - mid_index);
 	while (--mid_index >= 0)
 		do_rrb(stat);
+	divide_chunk(stat, (int)((max_value - min_value + 1) / 2));
 }
 
 static int	search_the_distance_in_forward(t_status *stat, int max_value)

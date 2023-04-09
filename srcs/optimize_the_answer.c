@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 00:42:19 by bena              #+#    #+#             */
-/*   Updated: 2023/04/03 14:38:14 by bena             ###   ########.fr       */
+/*   Updated: 2023/04/09 23:37:03 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,11 @@ void	optimize_the_answer(char *answer_sheet)
 		replace(answer_sheet, RA_RRA, OO);
 		replace(answer_sheet, RB_RRB, OO);
 		replace(answer_sheet, RRA_RA, OO);
+		replace(answer_sheet, SA_SA, OO);
+		replace(answer_sheet, SB_SB, OO);
+		replace(answer_sheet, SA_SB, SS_O);
+		replace(answer_sheet, SB_SA, SS_O);
+		replace(answer_sheet, SS_SS, OO);
 		replace(answer_sheet, RA_RB, RR_O);
 		replace(answer_sheet, RB_RA, RR_O);
 		replace(answer_sheet, RRA_RRB, RRR_O);

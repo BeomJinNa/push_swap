@@ -1,7 +1,7 @@
 CC		= cc
 AR		= ar
 ARFLAGS	= crs
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -g -Wall -Wextra -Werror
 
 NAME	= push_swap
 B_NAME	= checker
@@ -23,16 +23,16 @@ SRCS	=	srcs/main.c \
 			srcs/init_data/sort_array.c \
 			srcs/print_answer.c \
 			srcs/solve_push_swap.c \
+			srcs/solve_push_swap/divide_chunk.c \
 			srcs/solve_push_swap/do_push.c \
 			srcs/solve_push_swap/do_r_rotate.c \
 			srcs/solve_push_swap/do_rotate.c \
 			srcs/solve_push_swap/do_swap.c \
-			srcs/solve_push_swap/get_next_value.c \
 			srcs/solve_push_swap/init_stack.c \
-			srcs/solve_push_swap/is_there_anything_to_overcome.c \
 			srcs/solve_push_swap/push.c \
 			srcs/solve_push_swap/push_less_elems.c \
 			srcs/solve_push_swap/put_answer.c \
+			srcs/solve_push_swap/recall_elems.c \
 			srcs/solve_push_swap/recall_one_elem.c \
 			srcs/solve_push_swap/rotate.c \
 			srcs/solve_push_swap/sort_residual_elems.c \

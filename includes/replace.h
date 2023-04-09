@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 08:27:08 by bena              #+#    #+#             */
-/*   Updated: 2023/04/03 14:39:24 by bena             ###   ########.fr       */
+/*   Updated: 2023/04/09 23:38:54 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,12 @@
 # define RB_RRB "kn"
 # define RRA_RA "mj"
 # define RRB_RB "nk"
+# define SA_SA "ee"
+# define SB_SB "ff"
+# define SA_SB "ef"
+# define SB_SA "fe"
+# define SS_O "g "
+# define SS_SS "gg"
 # define OO "  "
 # define RA_RB "jk"
 # define RB_RA "kj"
