@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 02:32:40 by bena              #+#    #+#             */
-/*   Updated: 2023/04/10 00:30:53 by bena             ###   ########.fr       */
+/*   Updated: 2023/04/11 21:26:36 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,23 +86,11 @@ static void	push_swap(t_status *stat)
 
 static double	get_ratio(int N)
 {
-	int				i;
-	double			before;
 	double			result;
-	double			gap;
-	const double	gap_epsilon = 0.0001;
+	const double	sqrt3 = 1.732;
 
-	i = 0;
-	before = 0;
-	result = (double)N;
-	gap = 1.0;
-	while (i < 30 && (gap >= gap_epsilon || - gap >= gap_epsilon))
-	{
-		before = result;
-		result = (result + ((double)N / result)) / 2;
-		gap = result - before;
-		i++;
-	}
-	result = 5.6 / result;
+	result = 0.29;
+	if ((int)(N * result) < 15)
+		result *= sqrt3;
 	return (result);
 }
