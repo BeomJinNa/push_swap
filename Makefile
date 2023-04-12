@@ -1,7 +1,7 @@
 CC		= cc
 AR		= ar
 ARFLAGS	= crs
-CFLAGS	= -g -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror
 
 NAME	= push_swap
 B_NAME	= checker
