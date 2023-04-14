@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 12:43:45 by bena              #+#    #+#             */
-/*   Updated: 2023/03/30 12:14:05 by bena             ###   ########.fr       */
+/*   Updated: 2023/04/19 04:00:24 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(int ac, char **av)
 	char	*answer_sheet;
 
 	if (ac == 1)
-		return (terminate_current_program(0));
+		return (0);
 	array.array = NULL;
 	initialize_data(&array, ac, av);
 	if (array.array == NULL)

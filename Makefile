@@ -9,6 +9,8 @@ LIBS	= libft
 B_LIBS	= libft_bonus
 ARCH	= ft
 B_ARCH	= ft_bonus
+L_NAME	= libft/libft.a
+LB_NAME	= libft_bonus/libft_bonus.a
 INCLUDE	= includes/
 
 SRCS	=	srcs/main.c \
@@ -67,19 +69,24 @@ B_OBJS	= $(B_SRCS:.c=.o)
 
 .PHONY: all
 all :
-	$(foreach lib, $(LIBS), make -C $(lib);)
 	make $(NAME)
 
-$(NAME) : $(OBJS)
+$(NAME) : $(L_NAME) $(OBJS)
 	$(CC) -o $(NAME) $(OBJS) $(foreach lib, $(LIBS), -L$(lib)) $(foreach arch, $(ARCH), -l$(arch))
+
+$(L_NAME) :
+	make -C libft
 
 .PHONY: bonus
 bonus :
-	$(foreach lib, $(B_LIBS), make -C $(lib);)
 	make $(B_NAME)
 
-$(B_NAME) : $(B_OBJS)
+
+$(B_NAME) : $(LB_NAME) $(B_OBJS)
 	$(CC) -o $(B_NAME) $(B_OBJS) $(foreach lib, $(B_LIBS), -L$(lib)) $(foreach arch, $(B_ARCH), -l$(arch))
+
+$(LB_NAME) :
+	make -C libft_bonus
 
 %.o : %.c
 	$(CC) $(CFLAGS) -I$(INCLUDE) -c $< -o $@

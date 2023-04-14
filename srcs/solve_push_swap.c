@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 02:32:40 by bena              #+#    #+#             */
-/*   Updated: 2023/04/12 16:37:30 by bena             ###   ########.fr       */
+/*   Updated: 2023/04/19 17:37:03 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void			push_less_elems(t_status *stat, int number_of_elems_to_push);
 void			recall_one_elem(t_status *stat);
 static char		*find_the_answer(t_stack *a, t_stack *b);
 static void		push_swap(t_status *stat);
+static int		does_the_array_need_to_arrange(t_status *stat);
 static double	get_ratio(int N);
 
 char	*solve_push_swap(t_array *array)
@@ -69,7 +70,7 @@ static void	push_swap(t_status *stat)
 
 	if (stat->number_of_elems <= 3)
 		return (sort_residual_elems(stat));
-	while (stat->residual_elems > 3)
+	while (stat->residual_elems > 3 && does_the_array_need_to_arrange(stat))
 	{
 		ratio = get_ratio(stat->residual_elems);
 		elems_to_push = (int)(stat->residual_elems * ratio);
@@ -84,13 +85,54 @@ static void	push_swap(t_status *stat)
 		recall_one_elem(stat);
 }
 
+static int	does_the_array_need_to_arrange(t_status *stat)
+{
+	t_elem	*ptr;
+
+	ptr = stat->a->gate;
+	while (ptr != NULL && ptr->next != stat->a->gate)
+	{
+		if (ptr->value + 1 != ptr->next->value)
+			return (1);
+		ptr = ptr->next;
+	}
+	return (0);
+}
+
+//static double	get_ratio(int N)
+//{
+//	double			result;
+//	const double	sqrt3 = 1.732;
+//
+//	result = 0.29;
+//	if ((int)(N * result) < 15)
+//	return (result);
+//}
+
 static double	get_ratio(int N)
 {
+	int				i;
+	double			before;
 	double			result;
-	const double	sqrt3 = 1.732;
+	double			gap;
+	const double	gap_epsilon = 0.0001;
 
-	result = 0.29;
-	if ((int)(N * result) < 15)
-		result *= sqrt3;
+	result = 0.28;
+	if ((int)(N * result) >= 16)
+		return (result);
+	if ((int)(N * result * 1.732) >= 16)
+		return (result * 1.732);
+	i = 0;
+	before = 0;
+	result = (double)N;
+	gap = 1.0;
+	while (i < 30 && (gap >= gap_epsilon || - gap >= gap_epsilon))
+	{
+		before = result;
+		result = (result + ((double)N / result)) / 2;
+		gap = result - before;
+		i++;
+	}
+	result = 2.6 / result;
 	return (result);
 }
