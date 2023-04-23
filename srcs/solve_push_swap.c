@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 02:32:40 by bena              #+#    #+#             */
-/*   Updated: 2023/04/19 17:37:03 by bena             ###   ########.fr       */
+/*   Updated: 2023/04/23 21:51:37 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,16 +99,6 @@ static int	does_the_array_need_to_arrange(t_status *stat)
 	return (0);
 }
 
-//static double	get_ratio(int N)
-//{
-//	double			result;
-//	const double	sqrt3 = 1.732;
-//
-//	result = 0.29;
-//	if ((int)(N * result) < 15)
-//	return (result);
-//}
-
 static double	get_ratio(int N)
 {
 	int				i;
@@ -117,7 +107,7 @@ static double	get_ratio(int N)
 	double			gap;
 	const double	gap_epsilon = 0.0001;
 
-	result = 0.28;
+	result = 0.29;
 	if ((int)(N * result) >= 16)
 		return (result);
 	if ((int)(N * result * 1.732) >= 16)
@@ -133,6 +123,6 @@ static double	get_ratio(int N)
 		gap = result - before;
 		i++;
 	}
-	result = 2.6 / result;
+	result = 2.4 / result;
 	return (result);
 }

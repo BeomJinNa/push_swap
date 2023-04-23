@@ -6,15 +6,19 @@
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 00:42:19 by bena              #+#    #+#             */
-/*   Updated: 2023/04/09 23:37:03 by bena             ###   ########.fr       */
+/*   Updated: 2023/04/23 21:45:21 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "replace.h"
 
+void		merge_rr(char *ptr);
+void		merge_rrr(char *ptr);
 static void	replace(char *answer_sheet, const char *before, const char *after);
 static void	trim_spaces_in_answers(char *answer_sheet);
+static void	optimize(char *answer_sheet, size_t *pre_optimized_length);
+static void	merge_rotation(char *answer_sheet);
 
 void	optimize_the_answer(char *answer_sheet)
 {
@@ -22,27 +26,31 @@ void	optimize_the_answer(char *answer_sheet)
 
 	pre_optimized_length = 0;
 	while (ft_strlen(answer_sheet) != pre_optimized_length)
-	{
-		pre_optimized_length = ft_strlen(answer_sheet);
-		replace(answer_sheet, PB_PA, OO);
-		replace(answer_sheet, PA_PB, OO);
-		replace(answer_sheet, RA_RRA, OO);
-		replace(answer_sheet, RB_RRB, OO);
-		replace(answer_sheet, RRA_RA, OO);
-		replace(answer_sheet, SA_SA, OO);
-		replace(answer_sheet, SB_SB, OO);
-		replace(answer_sheet, SA_SB, SS_O);
-		replace(answer_sheet, SB_SA, SS_O);
-		replace(answer_sheet, SS_SS, OO);
-		replace(answer_sheet, RA_RB, RR_O);
-		replace(answer_sheet, RB_RA, RR_O);
-		replace(answer_sheet, RRA_RRB, RRR_O);
-		replace(answer_sheet, RRB_RRA, RRR_O);
-		replace(answer_sheet, RA_PB_RRA, SA_PB_O);
-		replace(answer_sheet, RB_PA_RRB, SB_PA_O);
-		replace(answer_sheet, SB_PA_PA_SB, PA_PA_SS_O);
-		replace(answer_sheet, SA_PB_PB_SA, PB_PB_SS_O);
-	}
+		optimize(answer_sheet, &pre_optimized_length);
+}
+
+static void	optimize(char *answer_sheet, size_t *pre_optimized_length)
+{
+	*pre_optimized_length = ft_strlen(answer_sheet);
+	replace(answer_sheet, PB_PA, OO);
+	replace(answer_sheet, PA_PB, OO);
+	replace(answer_sheet, RA_RRA, OO);
+	replace(answer_sheet, RB_RRB, OO);
+	replace(answer_sheet, RRA_RA, OO);
+	replace(answer_sheet, SA_SA, OO);
+	replace(answer_sheet, SB_SB, OO);
+	replace(answer_sheet, SA_SB, SS_O);
+	replace(answer_sheet, SB_SA, SS_O);
+	replace(answer_sheet, SS_SS, OO);
+	replace(answer_sheet, RA_RB, RR_O);
+	replace(answer_sheet, RB_RA, RR_O);
+	replace(answer_sheet, RRA_RRB, RRR_O);
+	replace(answer_sheet, RRB_RRA, RRR_O);
+	replace(answer_sheet, RA_PB_RRA, SA_PB_O);
+	replace(answer_sheet, RB_PA_RRB, SB_PA_O);
+	replace(answer_sheet, SB_PA_PA_SB, PA_PA_SS_O);
+	replace(answer_sheet, SA_PB_PB_SA, PB_PB_SS_O);
+	merge_rotation(answer_sheet);
 }
 
 static void	replace(char *answer_sheet, const char *before, const char *after)
@@ -79,4 +87,12 @@ static void	trim_spaces_in_answers(char *answer_sheet)
 			take++;
 	}
 	*take = '\0';
+}
+
+static void	merge_rotation(char *answer_sheet)
+{
+	merge_rr(answer_sheet);
+	trim_spaces_in_answers(answer_sheet);
+	merge_rrr(answer_sheet);
+	trim_spaces_in_answers(answer_sheet);
 }

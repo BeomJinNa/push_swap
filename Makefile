@@ -39,7 +39,8 @@ SRCS	=	srcs/main.c \
 			srcs/solve_push_swap/rotate.c \
 			srcs/solve_push_swap/sort_residual_elems.c \
 			srcs/solve_push_swap/swap.c \
-			srcs/optimize_the_answer.c
+			srcs/optimize_the_answer.c \
+			srcs/optimize_the_answer/merge_rotation.c
 
 B_SRCS	=	bonus/main_bonus.c \
 			bonus/actions/do_push_bonus.c \
