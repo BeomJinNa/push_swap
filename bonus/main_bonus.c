@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 12:43:45 by bena              #+#    #+#             */
-/*   Updated: 2023/03/31 07:27:40 by bena             ###   ########.fr       */
+/*   Updated: 2023/04/24 17:12:20 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 #include "s_array_bonus.h"
 
 void		initialize_data(t_array *array, int ac, char **av);
-char		*solve_push_swap(t_array *array);
-void		optimize_the_answer(char *answer_sheet);
-void		print_answer(char *answer_sheet);
 int			check_result(t_array *array);
 static int	terminate_current_program(int output);
 

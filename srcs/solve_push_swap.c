@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 02:32:40 by bena              #+#    #+#             */
-/*   Updated: 2023/04/23 21:51:37 by bena             ###   ########.fr       */
+/*   Updated: 2023/04/24 16:32:50 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,8 +110,6 @@ static double	get_ratio(int N)
 	result = 0.29;
 	if ((int)(N * result) >= 16)
 		return (result);
-	if ((int)(N * result * 1.732) >= 16)
-		return (result * 1.732);
 	i = 0;
 	before = 0;
 	result = (double)N;
@@ -123,6 +121,6 @@ static double	get_ratio(int N)
 		gap = result - before;
 		i++;
 	}
-	result = 2.4 / result;
+	result = 1.8 / result;
 	return (result);
 }
